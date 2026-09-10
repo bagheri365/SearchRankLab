@@ -38,3 +38,11 @@ python experiments/01_bm25_scifact.py
 ```
 
 The baseline reports Recall@100, MRR@10, NDCG@10, and local timing measurements.
+
+The BM25 experiment also writes per-query rankings and metrics to:
+
+```text
+results/scifact/bm25_per_query.jsonl
+```
+
+These records are used later for sparse-vs-dense disagreement analysis.

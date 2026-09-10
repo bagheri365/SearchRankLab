@@ -3,8 +3,15 @@
 from time import perf_counter
 
 from searchranklab.datasets import load_scifact, validate_dataset
-from searchranklab.evaluation import evaluate_run
+from searchranklab.evaluation import (
+    evaluate_queries,
+    evaluate_run,
+    write_query_evaluations_jsonl,
+)
 from searchranklab.retrieval import BM25Retriever
+
+
+OUTPUT_PATH = "results/scifact/bm25_per_query.jsonl"
 
 
 def main() -> None:
@@ -22,6 +29,13 @@ def main() -> None:
     recall100 = evaluate_run(run, dataset.qrels, k=100)
     top10 = evaluate_run(run, dataset.qrels, k=10)
 
+    records = evaluate_queries(
+        queries=dataset.queries,
+        qrels=dataset.qrels,
+        run=run,
+    )
+    output_path = write_query_evaluations_jsonl(records, OUTPUT_PATH)
+
     print("BM25 / SciFact")
     print(f"documents: {len(dataset.corpus):,}")
     print(f"queries: {len(dataset.queries):,}")
@@ -31,6 +45,7 @@ def main() -> None:
     print(f"Recall@100: {recall100.recall_at_k:.4f}")
     print(f"MRR@10: {top10.mrr_at_k:.4f}")
     print(f"NDCG@10: {top10.ndcg_at_k:.4f}")
+    print(f"per-query results: {output_path}")
 
 
 if __name__ == "__main__":
