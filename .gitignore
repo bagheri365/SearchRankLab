@@ -17,3 +17,6 @@ dist/
 
 results/*
 !results/.gitkeep
+
+data/*
+!data/.gitkeep
