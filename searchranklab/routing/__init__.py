@@ -12,6 +12,7 @@ from .lexical import (
     lexical_query_features,
 )
 from .model import PreRetrievalRouter
+from .utility_model import UtilityRegressionRouter
 
 __all__ = [
     "FEATURE_NAMES",
@@ -20,6 +21,7 @@ __all__ = [
     "LexicalStatistics",
     "PreRetrievalRouter",
     "RoutedSummary",
+    "UtilityRegressionRouter",
     "always_strategy",
     "build_lexical_statistics",
     "evaluate_routing",
