@@ -12,14 +12,15 @@ from .features import featurize_queries
 class PreRetrievalRouter:
     """Multinomial logistic-regression router over query-only features."""
 
-    def __init__(self) -> None:
+    def __init__(self, *, class_weight: str | None = "balanced") -> None:
+        self.class_weight = class_weight
         self.pipeline = Pipeline(
             [
                 ("scale", StandardScaler()),
                 (
                     "classifier",
                     LogisticRegression(
-                        class_weight="balanced",
+                        class_weight=class_weight,
                         max_iter=2000,
                         random_state=42,
                     ),
