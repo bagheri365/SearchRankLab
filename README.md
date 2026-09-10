@@ -105,3 +105,21 @@ python experiments/05_oracle_scifact.py
 The oracle selects the highest-NDCG@10 strategy for each query and provides an
 upper bound on the potential value of adaptive routing before any router is
 trained.
+
+## Cost-aware oracle frontier
+
+After the relevance-only oracle, run:
+
+```bash
+python experiments/06_cost_oracle_scifact.py
+```
+
+This evaluates the oracle objective
+
+```text
+utility = NDCG@10 - lambda * cost
+```
+
+across several lambda values. The first cost proxy is intentionally simple:
+BM25=1, dense=1, hybrid=2. It is an implementation-independent relative compute
+proxy, not a claim about production latency.
