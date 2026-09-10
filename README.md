@@ -123,3 +123,21 @@ utility = NDCG@10 - lambda * cost
 across several lambda values. The first cost proxy is intentionally simple:
 BM25=1, dense=1, hybrid=2. It is an implementation-independent relative compute
 proxy, not a claim about production latency.
+
+## First pre-retrieval router
+
+Run the first learned router with:
+
+```bash
+python experiments/07_pre_retrieval_router_scifact.py
+```
+
+The router uses only cheap query features available before retrieval: length,
+token statistics, digit/uppercase ratios, and question-mark presence. It does
+not use retrieval scores, overlap, result sets, or relevance judgments as
+features.
+
+For this first in-domain prototype, cost-aware oracle decisions at `lambda=0.10`
+are used as labels and SciFact queries are split deterministically into a
+stratified 70/30 train/test split. This is a development experiment, not the
+final cross-domain evaluation.
