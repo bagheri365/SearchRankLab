@@ -93,3 +93,15 @@ Per-query results are written to:
 ```text
 results/scifact/hybrid_rrf_per_query.jsonl
 ```
+
+## Oracle routing ceiling
+
+After generating BM25, dense, and hybrid per-query outputs, run:
+
+```bash
+python experiments/05_oracle_scifact.py
+```
+
+The oracle selects the highest-NDCG@10 strategy for each query and provides an
+upper bound on the potential value of adaptive routing before any router is
+trained.
