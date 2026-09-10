@@ -28,3 +28,13 @@ python experiments/00_download_scifact.py
 ```
 
 The raw dataset is stored under `data/scifact/` and is intentionally ignored by Git.
+
+## BM25 baseline
+
+After downloading SciFact, run:
+
+```bash
+python experiments/01_bm25_scifact.py
+```
+
+The baseline reports Recall@100, MRR@10, NDCG@10, and local timing measurements.

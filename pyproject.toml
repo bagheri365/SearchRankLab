@@ -7,7 +7,9 @@ name = "searchranklab"
 version = "0.1.0"
 description = "Research framework for query-adaptive sparse, dense, hybrid, and reranked search."
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "rank-bm25>=0.2.2",
+]
 
 [project.optional-dependencies]
 dev = [
