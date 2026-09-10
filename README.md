@@ -46,3 +46,22 @@ results/scifact/bm25_per_query.jsonl
 ```
 
 These records are used later for sparse-vs-dense disagreement analysis.
+
+## Dense retrieval baseline
+
+Run the CPU-friendly exact dense baseline on SciFact:
+
+```bash
+python experiments/02_dense_scifact.py
+```
+
+The initial dense baseline uses `sentence-transformers/msmarco-MiniLM-L6-cos-v5`
+with normalized embeddings and exact NumPy cosine search. Exact search is
+intentional at this stage so retrieval quality is not confounded by ANN
+approximation.
+
+Per-query results are written to:
+
+```text
+results/scifact/dense_per_query.jsonl
+```

@@ -8,7 +8,9 @@ version = "0.1.0"
 description = "Research framework for query-adaptive sparse, dense, hybrid, and reranked search."
 requires-python = ">=3.10"
 dependencies = [
+    "numpy>=2.0",
     "rank-bm25>=0.2.2",
+    "sentence-transformers>=3.0",
 ]
 
 [project.optional-dependencies]
