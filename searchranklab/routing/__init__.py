@@ -12,6 +12,7 @@ from .lexical import (
     lexical_query_features,
 )
 from .model import PreRetrievalRouter
+from .robustness import RobustnessSummary, SeedResult, summarize_seed_results
 from .utility_model import UtilityRegressionRouter
 
 __all__ = [
@@ -20,7 +21,9 @@ __all__ = [
     "FeatureDiagnostic",
     "LexicalStatistics",
     "PreRetrievalRouter",
+    "RobustnessSummary",
     "RoutedSummary",
+    "SeedResult",
     "UtilityRegressionRouter",
     "always_strategy",
     "build_lexical_statistics",
@@ -33,4 +36,5 @@ __all__ = [
     "query_features",
     "random_strategy",
     "strongest_effects",
+    "summarize_seed_results",
 ]
