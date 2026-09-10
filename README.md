@@ -76,3 +76,20 @@ python experiments/03_compare_bm25_dense.py
 
 This reports query-level BM25 wins, dense wins, ties, Recall@100 recoveries,
 and examples with the largest NDCG@10 differences.
+
+## Hybrid retrieval baseline
+
+After generating the sparse and dense baselines, run:
+
+```bash
+python experiments/04_hybrid_scifact.py
+```
+
+This fuses BM25 and dense top-100 rankings with Reciprocal Rank Fusion (RRF)
+using `k=60`, then reports Recall@100, MRR@10, and NDCG@10.
+
+Per-query results are written to:
+
+```text
+results/scifact/hybrid_rrf_per_query.jsonl
+```
