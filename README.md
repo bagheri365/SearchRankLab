@@ -10,6 +10,8 @@ Built on BEIR SciFact and FiQA, the project covers sparse retrieval, dense retri
 
 ## Headline results
 
+> **Key result:** Hybrid + cross-encoder reranking improves ranking quality consistently across domains, while pre-retrieval routing shows oracle headroom but fails to generalize robustly.
+
 **NDCG@10**
 
 | Dataset | BM25 | Dense | Hybrid | Hybrid + reranker |
