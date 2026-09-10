@@ -65,3 +65,14 @@ Per-query results are written to:
 ```text
 results/scifact/dense_per_query.jsonl
 ```
+
+## Sparse vs dense disagreement analysis
+
+After generating both per-query result files, run:
+
+```bash
+python experiments/03_compare_bm25_dense.py
+```
+
+This reports query-level BM25 wins, dense wins, ties, Recall@100 recoveries,
+and examples with the largest NDCG@10 differences.
