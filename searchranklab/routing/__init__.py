@@ -14,6 +14,11 @@ from .lexical import (
 from .model import PreRetrievalRouter
 from .robustness import RobustnessSummary, SeedResult, summarize_seed_results
 from .semantic import DEFAULT_ROUTER_MODEL, load_query_encoder, semantic_query_features
+from .semantic_tuned import (
+    SemanticConfig,
+    TunedSemanticUtilityRouter,
+    select_semantic_config,
+)
 from .semantic_utility_model import SemanticUtilityRouter
 from .utility_model import UtilityRegressionRouter
 
@@ -27,7 +32,9 @@ __all__ = [
     "RobustnessSummary",
     "RoutedSummary",
     "SeedResult",
+    "SemanticConfig",
     "SemanticUtilityRouter",
+    "TunedSemanticUtilityRouter",
     "UtilityRegressionRouter",
     "always_strategy",
     "build_lexical_statistics",
@@ -40,6 +47,7 @@ __all__ = [
     "load_query_encoder",
     "query_features",
     "random_strategy",
+    "select_semantic_config",
     "semantic_query_features",
     "strongest_effects",
     "summarize_seed_results",
